@@ -1,0 +1,148 @@
+// Cores do sistema
+@colorBsMuted: lighten(black, 46.5%);
+@colorBsDefault: #f4f4f4;
+@colorBsPrimary: #3c8dbc;
+@colorBsSuccess: #00a65a;
+@colorBsWarning: #f39c12;
+@colorBsDanger: #dd4b39;
+
+// Retirar Barra preta inferior acima do footer no chrome
+.content-wrapper {
+  padding-bottom: 1px;
+}
+
+// Empurrar calendário para baixo do InputDate
+.rdtOpen .rdtPicker {
+    margin-top: 35px;
+}
+
+// Regras para identificar estado do paciente
+tr.confirmed-presence {
+  background-color: lighten(@colorBsPrimary, 40%);
+}
+.table-hover > tbody > tr.confirmed-presence:hover {
+  background-color: lighten(@colorBsPrimary, 30%);
+}
+tr.in-attendance {
+  background-color: lighten(@colorBsSuccess, 60%);
+}
+.table-hover > tbody > tr.in-attendance:hover {
+  background-color: lighten(@colorBsSuccess, 50%);
+}
+tr.scheduling-canceled {
+  background-color: lighten(@colorBsDanger, 40%);
+}
+.table-hover > tbody > tr.scheduling-canceled:hover {
+  background-color: lighten(@colorBsDanger, 30%);
+}
+
+// Regras menu dropdown bootstrap
+li {
+  &.dropdown-item-danger {
+    background-color: lighten(@colorBsDanger, 40%);
+  }
+  &.dropdown-item-primary {
+      background-color: lighten(@colorBsPrimary, 40%);
+  }
+  &.dropdown-item-success {
+      background-color: lighten(@colorBsSuccess, 60%);
+  }
+  &.dropdown-item-warning {
+      background-color: lighten(@colorBsWarning, 40%);
+  }
+  a[role="menuitem"] {
+    padding: 1px 0px;
+  }
+}
+a[role="menuitem"] span {
+    margin: 3px 20px;
+}
+
+// Regras para o componente Hr
+.hr {
+  .hr-label {
+    margin-bottom: -20px;
+    color: @colorBsMuted;
+
+    &.default {
+      color: @colorBsMuted;
+    }
+    &.danger {
+      color: @colorBsDanger;
+    }
+    &.success {
+      color: @colorBsSuccess;
+    }
+    &.primary {
+      color: @colorBsPrimary;
+    }
+    &.warning {
+      color: @colorBsWarning;
+    }
+
+    i {
+      margin-right: 0.5em;
+    }
+  }
+  .hr-line {
+    height: 1px;
+    background-color: @colorBsMuted;
+
+    &.default {
+      background-color: @colorBsMuted;
+    }
+    &.danger {
+      background-color: @colorBsDanger;
+    }
+    &.success {
+      background-color: @colorBsSuccess;
+    }
+    &.primary {
+      background-color: @colorBsPrimary;
+    }
+    &.warning {
+      background-color: @colorBsWarning;
+    }
+  }
+}
+
+// Regras para a moldura da câmera
+
+#input-capture-photo {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 15;
+  height: 100%;
+  width: 140px;
+  filter: alpha(opacity=0);
+  -ms-filter: &quot;
+  opacity: 0;
+  background-color: transparent;
+  color: transparent;
+}
+
+.photograph {
+  text-align: center;
+
+  &.mobile {
+    button {
+      margin-bottom: 10px;
+    }
+  }
+  &.desktop {
+    button {
+      margin-top: 10px;
+    }
+  }
+
+  video,
+  img {
+    min-width: 240px;
+    min-height: 180px;
+    width: 100%;
+    height: 100%;
+    border: 5px solid @colorBsMuted;
+    border-radius: 10px;
+  }
+}

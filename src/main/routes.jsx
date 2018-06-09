@@ -1,11 +1,13 @@
 import React from 'react';
 import { Router, Route, Redirect, hashHistory } from 'react-router';
 
-import Dashboard from '../dashboard';
+import Relatorio from '../relatorio';
+import RelatorioCancelados from '../relatorio/cancelados';
 
 export default props => (
   <Router history={hashHistory}>
-    <Route path="/" component={Dashboard} />
+    <Route path="/" component={Relatorio} />
+    <Route path="/cancelamentos" component={RelatorioCancelados} />
     <Redirect from="*" to="/" />
   </Router>
 );

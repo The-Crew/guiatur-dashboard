@@ -5,10 +5,10 @@ import _ from 'lodash';
 
 import { Content, Box, Grid, ChartLine } from 'common';
 
-import { obterCancelados } from './relatorioActions';
+import { obterCancelados } from './canceladosActions';
 import GraficoCancelados from './components/GraficoCancelados';
 
-class Dashboard extends Component {
+class Relatorio extends Component {
   componentWillMount() {
     this.props.obterCancelados();
   }
@@ -16,8 +16,8 @@ class Dashboard extends Component {
   render() {
     return (
       <Content
-        title="Relatório"
-        breadcrumb={[{ name: 'Relatório', path: '#/' }]}
+        title="Cancelamentos"
+        breadcrumb={[{ name: 'Relatório', path: '#/' }, { name: 'Cancelamentos', path: '#/cancelamentos' }]}
       >
         <GraficoCancelados data={this.props.cancelados} />
       </Content>
@@ -26,8 +26,8 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  cancelados: state.dashboard.cancelados,
+  cancelados: state.relatorio.cancelados,
 });
 const mapDispatchToProps = dispatch => bindActionCreators({ obterCancelados }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(Relatorio)

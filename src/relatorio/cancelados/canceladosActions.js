@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import {
   LISTAR_CANCELADOS,
-} from './types';
+} from '../types';
 
 export const obterCancelados = () => (dispatch) => {
   axios.post('https://beleza-agendada-api.herokuapp.com/Relatorio/listarCancelamentos')

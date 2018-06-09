@@ -1,7 +1,11 @@
 import React from 'react';
 
 export default props => (
-  <div className={`box ${props.type === false ? '' : (props.type ? `box-${props.type}` : 'box-primary')}`}>
+  <div
+    className={
+      `box ${props.type === false ? '' : (props.type ? `box-${props.type}` : 'box-primary')} ${props.className || ''}`
+    }
+  >
     {
       props.title ?
       <div className="box-header with-border">

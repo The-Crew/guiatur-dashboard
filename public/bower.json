@@ -1,0 +1,21 @@
+{
+  "name": "beleza_agendada_dashboard",
+  "authors": [
+    "Filipe de Sousa Botelho <filipegame07@gmail.com>"
+  ],
+  "description": "Dashboard para o projeto acadêmico Beleza Agendada",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "admin-lte": "adminlte#^2.4.3"
+  }
+}

@@ -4,6 +4,7 @@
   "description": "Dashboard para a api do Beleza Agendada (Trabalho acadêmico)",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack-dev-server --progress --colors --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Filipe de Sousa <filipedesousab@gmail.com>",

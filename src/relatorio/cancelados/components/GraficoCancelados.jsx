@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
-import { Box, Grid, ChartLine } from 'common';
+import { Box, Grid, ChartBar } from 'common';
 
 export default (props) => {
   const chartData = {
@@ -22,7 +22,7 @@ export default (props) => {
   return (
     <Grid cols="12 12 6 6">
       <Box title="Cancelamentos" type="danger">
-        <ChartLine data={chartData} style={{ width: '100%' }} />
+        <ChartBar data={chartData} style={{ width: '100%' }} />
       </Box>
     </Grid>
   )

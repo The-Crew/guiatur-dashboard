@@ -11,3 +11,4 @@ export { default as InputMask } from './InputMask';
 export { default as Hr } from './Hr';
 export { default as SelectMultiple } from './SelectMultiple';
 export { default as ChartLine } from './ChartLine';
+export { default as ChartBar } from './ChartBar';

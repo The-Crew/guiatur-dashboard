@@ -1,5 +1,6 @@
 export const LISTAR_CANCELADOS = 'listar_cancelados';
 export const LISTAR_FATURAMENTO = 'listar_faturamento';
+export const LISTAR_FATURAMENTO_POR_SERVICO = 'listar_faturamento_por_servico';
 export const LISTAR_GASTOS_SERVICOS = 'listar_gastos_servicos';
 export const LISTAR_GASTOS_SERVICOS_POR_SERVICO = 'listar_gastos_servicos_por_servico';
 export const LISTAR_LUCRO_MENSAL = 'listar_lucro_mensal';

@@ -5,12 +5,14 @@ import _ from 'lodash';
 
 import { Content } from 'common';
 
-import { obterGastosServicos } from './gastosActions';
-import GraficoServicos from './components/GraficoServicos';
+import { obterGastosServicos, obterGastoServicosPorServico } from './gastosActions';
+import GraficoGastoServicos from './components/GraficoGastoServicos';
+import GraficoGastoServicosPorServico from './components/GraficoGastoServicosPorServico';
 
 class RelatorioGastosServicos extends Component {
   componentWillMount() {
     this.props.obterGastosServicos();
+    this.props.obterGastoServicosPorServico();
   }
 
   render() {
@@ -19,7 +21,8 @@ class RelatorioGastosServicos extends Component {
         title="Gastos com serviços"
         breadcrumb={[{ name: 'Relatório', path: '#/' }, { name: 'Gastos com serviços', path: '#/gastosServicos' }]}
       >
-        <GraficoServicos data={this.props.gastosServicos} />
+        <GraficoGastoServicos data={this.props.gastosServicos} />
+        <GraficoGastoServicosPorServico data={this.props.gastosServicosPorServico} />
       </Content>
     );
   }
@@ -27,7 +30,8 @@ class RelatorioGastosServicos extends Component {
 
 const mapStateToProps = state => ({
   gastosServicos: state.relatorio.gastosServicos,
+  gastosServicosPorServico: state.relatorio.gastosServicosPorServico,
 });
-const mapDispatchToProps = dispatch => bindActionCreators({ obterGastosServicos }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ obterGastosServicos, obterGastoServicosPorServico }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(RelatorioGastosServicos)

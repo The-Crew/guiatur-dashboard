@@ -10,6 +10,7 @@ export default props => (
       <MenuItem path="#/cancelamentos" label="Cancelamentos" icon="dashboard" />
       <MenuItem path="#/faturamento" label="Faturamento" icon="dashboard" />
       <MenuItem path="#/gastosServicos" label="Gastos serviços" icon="dashboard" />
+      <MenuItem path="#/lucroMensal" label="Lucro mensal" icon="dashboard" />
     </MenuTree>
   </ul>
 );

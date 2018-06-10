@@ -1,5 +1,6 @@
 import {
   LISTAR_CANCELADOS,
+  LISTAR_CANCELADOS_POR_BAIRRO,
   LISTAR_FATURAMENTO,
   LISTAR_FATURAMENTO_POR_SERVICO,
   LISTAR_GASTOS_SERVICOS,
@@ -10,6 +11,7 @@ import {
 
 const INITIAL_STATE = {
   cancelados: [],
+  canceladosPorBairro: [],
   faturamento: [],
   faturamentoPorServico: [],
   gastosServicos: [],
@@ -22,6 +24,8 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case LISTAR_CANCELADOS:
       return { ...state, cancelados: action.payload };
+    case LISTAR_CANCELADOS_POR_BAIRRO:
+      return { ...state, canceladosPorBairro: action.payload };
     case LISTAR_FATURAMENTO:
       return { ...state, faturamento: action.payload };
     case LISTAR_FATURAMENTO_POR_SERVICO:

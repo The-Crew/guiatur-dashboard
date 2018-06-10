@@ -8,7 +8,7 @@ export default (props) => {
     labels: _.keys(props.data),
     datasets: [
       {
-        label: 'Lucro mensal',
+        label: 'Lucro mensal por serviço',
         fillColor: "rgba(151,187,205,0.2)",
         strokeColor: "rgba(151,187,205,1)",
         pointColor: "rgba(151,187,205,1)",
@@ -21,7 +21,7 @@ export default (props) => {
   };
   return (
     <Grid cols="12 12 6 6">
-      <Box title="Gasto servicos" type="success">
+      <Box title="Lucro mensal por serviço" type="success">
         <ChartBar data={chartData} style={{ width: '100%' }} />
       </Box>
     </Grid>

@@ -3,6 +3,7 @@ import {
   LISTAR_FATURAMENTO,
   LISTAR_GASTOS_SERVICOS,
   LISTAR_LUCRO_MENSAL,
+  LISTAR_LUCRO_MENSAL_POR_SERVICO,
 } from './types';
 
 const INITIAL_STATE = {
@@ -10,6 +11,7 @@ const INITIAL_STATE = {
   faturamento: [],
   gastosServicos: [],
   lucroMensal: [],
+  lucroMensalPorServico: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -22,6 +24,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, gastosServicos: action.payload };
     case LISTAR_LUCRO_MENSAL:
       return { ...state, lucroMensal: action.payload };
+    case LISTAR_LUCRO_MENSAL_POR_SERVICO:
+      return { ...state, lucroMensalPorServico: action.payload };
     default:
       return state;
   }

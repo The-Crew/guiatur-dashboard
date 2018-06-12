@@ -10,3 +10,4 @@ export const LISTAR_SATISFACAO_POR_PROFISSIONAL = 'listar_satisfacao_por_profiss
 export const LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE = 'listar_satisfacao_por_bairro_cliente';
 export const LISTAR_SATISFACAO_POR_SERVICO = 'listar_satisfacao_por_servico';
 export const LISTAR_SERVICOS = 'listar_servicos';
+export const LISTAR_PROFISSIONAIS = 'listar_profissionais';

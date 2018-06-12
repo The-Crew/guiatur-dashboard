@@ -11,6 +11,7 @@ import {
   LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE,
   LISTAR_SATISFACAO_POR_SERVICO,
   LISTAR_SERVICOS,
+  LISTAR_PROFISSIONAIS,
 } from './types';
 
 const INITIAL_STATE = {
@@ -32,6 +33,7 @@ const INITIAL_STATE = {
     { Descricao: 'IPSEP' },
     { Descricao: 'Piedade' },
   ],
+  listaProfissionais: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -60,6 +62,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, satisfacaoPorServico: action.payload };
     case LISTAR_SERVICOS:
       return { ...state, listaServicos: action.payload };
+    case LISTAR_PROFISSIONAIS:
+      return { ...state, listaProfissionais: action.payload };
     default:
       return state;
   }

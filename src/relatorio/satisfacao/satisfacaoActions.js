@@ -6,17 +6,17 @@ import {
   LISTAR_SATISFACAO_POR_SERVICO,
 } from '../types';
 
-export const obterSatisfacaoPorProfissional = () => (dispatch) => {
-  axios.post('https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorProfissional',
-    { "Id": "1" },
-    { headers: { 'Content-type': 'application/x-www-form-urlencoded' }}
-  )
-    .then((resposta) => {
-      dispatch({ type: LISTAR_SATISFACAO_POR_PROFISSIONAL, payload: resposta.data })
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+export const obterSatisfacaoPorProfissional = profissionalId => (dispatch) => {
+  if (profissionalId === '') {
+    dispatch({ type: LISTAR_SATISFACAO_POR_PROFISSIONAL, payload: [] })
+  } else {
+    axios.post('https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorProfissional',
+      { Id: profissionalId },
+      { headers: { 'Content-type': 'application/x-www-form-urlencoded' }}
+    )
+      .then(resposta => dispatch({ type: LISTAR_SATISFACAO_POR_PROFISSIONAL, payload: resposta.data }))
+      .catch(error => console.log(error));
+  }
 };
 
 export const obterSatisfacaoPorBairroCliente = bairro => (dispatch) => {

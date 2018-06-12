@@ -10,6 +10,7 @@ import {
   LISTAR_SATISFACAO_POR_PROFISSIONAL,
   LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE,
   LISTAR_SATISFACAO_POR_SERVICO,
+  LISTAR_SERVICOS,
 } from './types';
 
 const INITIAL_STATE = {
@@ -24,6 +25,7 @@ const INITIAL_STATE = {
   satisfacaoPorProfissional: [],
   satisfacaoPorBairroCliente: [],
   satisfacaoPorServico: [],
+  listaServicos: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -50,6 +52,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, satisfacaoPorBairroCliente: action.payload };
     case LISTAR_SATISFACAO_POR_SERVICO:
       return { ...state, satisfacaoPorServico: action.payload };
+    case LISTAR_SERVICOS:
+      return { ...state, listaServicos: action.payload };
     default:
       return state;
   }

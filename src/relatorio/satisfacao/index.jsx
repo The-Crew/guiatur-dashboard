@@ -8,7 +8,6 @@ import { Content } from 'common';
 import {
   obterSatisfacaoPorProfissional,
   obterSatisfacaoPorBairroCliente,
-  obterSatisfacaoPorServico,
 } from './satisfacaoActions';
 import GraficoSatisfacaoPorProfissional from './components/GraficoSatisfacaoPorProfissional';
 import GraficoSatisfacaoPorBairroCliente from './components/GraficoSatisfacaoPorBairroCliente';
@@ -18,7 +17,6 @@ class RelatorioGastosServicos extends Component {
   componentWillMount() {
     this.props.obterSatisfacaoPorProfissional();
     this.props.obterSatisfacaoPorBairroCliente();
-    this.props.obterSatisfacaoPorServico();
   }
 
   render() {
@@ -29,7 +27,7 @@ class RelatorioGastosServicos extends Component {
       >
         <GraficoSatisfacaoPorProfissional data={this.props.satisfacaoPorProfissional} />
         <GraficoSatisfacaoPorBairroCliente data={this.props.satisfacaoPorBairroCliente} />
-        <GraficoSatisfacaoPorServico data={this.props.satisfacaoPorServico} />
+        <GraficoSatisfacaoPorServico />
       </Content>
     );
   }
@@ -38,12 +36,10 @@ class RelatorioGastosServicos extends Component {
 const mapStateToProps = state => ({
   satisfacaoPorProfissional: state.relatorio.satisfacaoPorProfissional,
   satisfacaoPorBairroCliente: state.relatorio.satisfacaoPorBairroCliente,
-  satisfacaoPorServico: state.relatorio.satisfacaoPorServico,
 });
 const mapDispatchToProps = dispatch => bindActionCreators({
   obterSatisfacaoPorProfissional,
   obterSatisfacaoPorBairroCliente,
-  obterSatisfacaoPorServico,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(RelatorioGastosServicos)

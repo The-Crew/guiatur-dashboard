@@ -33,16 +33,12 @@ export const obterSatisfacaoPorBairroCliente = () => (dispatch) => {
     });
 };
 
-export const obterSatisfacaoPorServico = () => (dispatch) => {
+export const obterSatisfacaoPorServico = servicoId => (dispatch) => {
   axios.post(
     'https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorServico',
-    { "Id": "1" },
-    { headers: { 'Content-type': 'application/x-www-form-urlencoded' }}
+    { Id: servicoId },
+    { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
   )
-    .then((resposta) => {
-      dispatch({ type: LISTAR_SATISFACAO_POR_SERVICO, payload: resposta.data })
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    .then(resposta => dispatch({ type: LISTAR_SATISFACAO_POR_SERVICO, payload: resposta.data }))
+    .catch(error => console.log(error));
 };

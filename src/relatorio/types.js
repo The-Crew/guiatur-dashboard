@@ -9,3 +9,4 @@ export const LISTAR_LUCRO_MENSAL_POR_SERVICO = 'listar_lucro_mensal_por_servico'
 export const LISTAR_SATISFACAO_POR_PROFISSIONAL = 'listar_satisfacao_por_profissional';
 export const LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE = 'listar_satisfacao_por_bairro_cliente';
 export const LISTAR_SATISFACAO_POR_SERVICO = 'listar_satisfacao_por_servico';
+export const LISTAR_SERVICOS = 'listar_servicos';

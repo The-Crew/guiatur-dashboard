@@ -11,6 +11,7 @@ import {
   LISTAR_SATISFACAO_POR_PROFISSIONAL,
   LISTAR_SATISFACAO_MEDIA_POR_BAIRRO_CLIENTE,
   LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE,
+  LISTAR_SATISFACAO_MEDIA_POR_SERVICOS,
   LISTAR_SATISFACAO_POR_SERVICO,
   LISTAR_SERVICOS,
   LISTAR_PROFISSIONAIS,
@@ -30,6 +31,7 @@ const INITIAL_STATE = {
   satisfacaoMediaPorBairros: [],
   satisfacaoPorBairroCliente: [],
   satisfacaoPorServico: [],
+  satisfacaoMediaPorServicos: [],
   listaServicos: [],
   listaBairros: [
     { Descricao: 'Boa Viagem' },
@@ -66,6 +68,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, satisfacaoMediaPorBairros: action.payload };
     case LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE:
       return { ...state, satisfacaoPorBairroCliente: action.payload };
+    case LISTAR_SATISFACAO_MEDIA_POR_SERVICOS:
+      return { ...state, satisfacaoMediaPorServicos: action.payload };
     case LISTAR_SATISFACAO_POR_SERVICO:
       return { ...state, satisfacaoPorServico: action.payload };
     case LISTAR_SERVICOS:

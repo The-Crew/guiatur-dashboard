@@ -10,6 +10,7 @@ export const LISTAR_SATISFACAO_MEDIA_POR_PROFISSIONAIS = 'listar_satisfacao_medi
 export const LISTAR_SATISFACAO_POR_PROFISSIONAL = 'listar_satisfacao_por_profissional';
 export const LISTAR_SATISFACAO_MEDIA_POR_BAIRRO_CLIENTE = 'listar_satisfacao_media_por_bairro_cliente';
 export const LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE = 'listar_satisfacao_por_bairro_cliente';
+export const LISTAR_SATISFACAO_MEDIA_POR_SERVICOS = 'listar_satisfacao_media_por_servicos';
 export const LISTAR_SATISFACAO_POR_SERVICO = 'listar_satisfacao_por_servico';
 export const LISTAR_SERVICOS = 'listar_servicos';
 export const LISTAR_PROFISSIONAIS = 'listar_profissionais';

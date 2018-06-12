@@ -6,6 +6,7 @@ import GraficoSatisfacaoMediaPorProfissionais from './components/GraficoSatisfac
 import GraficoSatisfacaoPorProfissional from './components/GraficoSatisfacaoPorProfissional';
 import GraficoSatisfacaoMediaPorBairros from './components/GraficoSatisfacaoMediaPorBairros';
 import GraficoSatisfacaoPorBairroCliente from './components/GraficoSatisfacaoPorBairroCliente';
+import GraficoSatisfacaoMediaPorServicos from './components/GraficoSatisfacaoMediaPorServicos';
 import GraficoSatisfacaoPorServico from './components/GraficoSatisfacaoPorServico';
 
 const RelatorioGastosServicos = props => (
@@ -17,6 +18,7 @@ const RelatorioGastosServicos = props => (
     <GraficoSatisfacaoPorProfissional />
     <GraficoSatisfacaoMediaPorBairros />
     <GraficoSatisfacaoPorBairroCliente />
+    <GraficoSatisfacaoMediaPorServicos />
     <GraficoSatisfacaoPorServico />
   </Content>
 );

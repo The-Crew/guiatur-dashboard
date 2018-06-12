@@ -5,6 +5,7 @@ import {
   LISTAR_SATISFACAO_POR_PROFISSIONAL,
   LISTAR_SATISFACAO_MEDIA_POR_BAIRRO_CLIENTE,
   LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE,
+  LISTAR_SATISFACAO_MEDIA_POR_SERVICOS,
   LISTAR_SATISFACAO_POR_SERVICO,
 } from '../types';
 
@@ -53,6 +54,14 @@ export const obterSatisfacaoPorBairroCliente = bairro => (dispatch) => {
 export const obterSatisfacaoPorServico = servicoId => (dispatch) => {
   if (servicoId === '') {
     dispatch({ type: LISTAR_SATISFACAO_POR_SERVICO, payload: [] });
+  } else if (servicoId === undefined) {
+    axios.post(
+      'https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorServico',
+      { Id: undefined },
+      { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
+    )
+      .then(resposta => dispatch({ type: LISTAR_SATISFACAO_MEDIA_POR_SERVICOS, payload: resposta.data }))
+      .catch(error => console.log(error));
   } else {
     axios.post(
       'https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorServico',

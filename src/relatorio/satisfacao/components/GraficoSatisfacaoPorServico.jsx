@@ -11,7 +11,6 @@ import { obterSatisfacaoPorServico } from '../satisfacaoActions';
 class SatisfacaoPorServico extends Component {
   componentWillMount() {
     if (this.props.listaServicos.length <= 0) this.props.obterListaDeServico();
-    this.props.obterSatisfacaoPorServico(0);
   }
   render() {
     const chartData = {

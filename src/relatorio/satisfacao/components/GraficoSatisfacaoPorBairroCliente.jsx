@@ -8,10 +8,6 @@ import { Box, Grid, ChartBar } from 'common';
 import { obterSatisfacaoPorBairroCliente } from '../satisfacaoActions';
 
 class SatisfacaoPorBairroCliente extends Component {
-  componentWillMount() {
-    this.props.obterSatisfacaoPorBairroCliente('undefined');
-  }
-
   render() {
     const chartData = {
       labels: _.keys(this.props.satisfacaoPorBairroCliente),

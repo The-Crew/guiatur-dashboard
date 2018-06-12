@@ -11,19 +11,20 @@ class SatisfacaoMediaPorBairros extends Component {
   componentWillMount() {
     this.props.obterSatisfacaoPorBairroCliente(undefined);
   }
+
   render() {
     const chartData = {
-      labels: _.keys(this.props.satisfacaoPorBairroCliente),
+      labels: _.keys(this.props.satisfacaoMediaPorBairros),
       datasets: [
         {
-          label: 'Satisfação por bairro cliente',
+          label: 'Satisfação média por bairros',
           fillColor: 'rgba(151,187,205,0.2)',
           strokeColor: 'rgba(151,187,205,1)',
           pointColor: 'rgba(151,187,205,1)',
           pointStrokeColor: '#fff',
           pointHighlightFill: '#fff',
           pointHighlightStroke: 'rgba(151,187,205,1)',
-          data: _.values(this.props.satisfacaoPorBairroCliente),
+          data: _.values(this.props.satisfacaoMediaPorBairros),
         },
       ],
     };
@@ -39,7 +40,7 @@ class SatisfacaoMediaPorBairros extends Component {
 }
 
 const mapStateToProps = state => ({
-  satisfacaoPorBairroCliente: state.relatorio.satisfacaoPorBairroCliente,
+  satisfacaoMediaPorBairros: state.relatorio.satisfacaoMediaPorBairros,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ obterSatisfacaoPorBairroCliente }, dispatch);

@@ -13,7 +13,7 @@ class SatisfacaoPorBairroCliente extends Component {
       labels: _.keys(this.props.satisfacaoPorBairroCliente),
       datasets: [
         {
-          label: 'Satisfação por bairro cliente',
+          label: 'Satisfação por bairro',
           fillColor: 'rgba(151,187,205,0.2)',
           strokeColor: 'rgba(151,187,205,1)',
           pointColor: 'rgba(151,187,205,1)',
@@ -27,7 +27,7 @@ class SatisfacaoPorBairroCliente extends Component {
 
     return (
       <Grid cols="12 12 6 6">
-        <Box title="Satisfação por bairro cliente">
+        <Box title="Satisfação por bairro">
           <ChartBar data={chartData} style={{ width: '100%' }} />
           <select onChange={(e) => this.props.obterSatisfacaoPorBairroCliente(e.target.value)}>
             <option value="">Selecione um bairro</option>

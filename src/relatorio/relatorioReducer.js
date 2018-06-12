@@ -9,6 +9,7 @@ import {
   LISTAR_LUCRO_MENSAL_POR_SERVICO,
   LISTAR_SATISFACAO_MEDIA_POR_PROFISSIONAIS,
   LISTAR_SATISFACAO_POR_PROFISSIONAL,
+  LISTAR_SATISFACAO_MEDIA_POR_BAIRRO_CLIENTE,
   LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE,
   LISTAR_SATISFACAO_POR_SERVICO,
   LISTAR_SERVICOS,
@@ -26,6 +27,7 @@ const INITIAL_STATE = {
   lucroMensalPorServico: [],
   satisfacaoMediaPorProfissionais: [],
   satisfacaoPorProfissional: [],
+  satisfacaoMediaPorBairros: [],
   satisfacaoPorBairroCliente: [],
   satisfacaoPorServico: [],
   listaServicos: [],
@@ -60,6 +62,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, satisfacaoMediaPorProfissionais: action.payload };
     case LISTAR_SATISFACAO_POR_PROFISSIONAL:
       return { ...state, satisfacaoPorProfissional: action.payload };
+    case LISTAR_SATISFACAO_MEDIA_POR_BAIRRO_CLIENTE:
+      return { ...state, satisfacaoMediaPorBairros: action.payload };
     case LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE:
       return { ...state, satisfacaoPorBairroCliente: action.payload };
     case LISTAR_SATISFACAO_POR_SERVICO:

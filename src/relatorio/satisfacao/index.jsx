@@ -4,6 +4,7 @@ import { Content } from 'common';
 
 import GraficoSatisfacaoMediaPorProfissionais from './components/GraficoSatisfacaoMediaPorProfissionais';
 import GraficoSatisfacaoPorProfissional from './components/GraficoSatisfacaoPorProfissional';
+import GraficoSatisfacaoMediaPorBairros from './components/GraficoSatisfacaoMediaPorBairros';
 import GraficoSatisfacaoPorBairroCliente from './components/GraficoSatisfacaoPorBairroCliente';
 import GraficoSatisfacaoPorServico from './components/GraficoSatisfacaoPorServico';
 
@@ -14,6 +15,7 @@ const RelatorioGastosServicos = props => (
   >
     <GraficoSatisfacaoMediaPorProfissionais />
     <GraficoSatisfacaoPorProfissional />
+    <GraficoSatisfacaoMediaPorBairros />
     <GraficoSatisfacaoPorBairroCliente />
     <GraficoSatisfacaoPorServico />
   </Content>

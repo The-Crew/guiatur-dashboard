@@ -26,6 +26,12 @@ const INITIAL_STATE = {
   satisfacaoPorBairroCliente: [],
   satisfacaoPorServico: [],
   listaServicos: [],
+  listaBairros: [
+    { Descricao: 'Boa Viagem' },
+    { Descricao: 'Imbiribeira' },
+    { Descricao: 'IPSEP' },
+    { Descricao: 'Piedade' },
+  ],
 };
 
 export default (state = INITIAL_STATE, action) => {

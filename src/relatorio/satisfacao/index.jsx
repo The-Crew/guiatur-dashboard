@@ -5,10 +5,7 @@ import _ from 'lodash';
 
 import { Content } from 'common';
 
-import {
-  obterSatisfacaoPorProfissional,
-  obterSatisfacaoPorBairroCliente,
-} from './satisfacaoActions';
+import { obterSatisfacaoPorProfissional } from './satisfacaoActions';
 import GraficoSatisfacaoPorProfissional from './components/GraficoSatisfacaoPorProfissional';
 import GraficoSatisfacaoPorBairroCliente from './components/GraficoSatisfacaoPorBairroCliente';
 import GraficoSatisfacaoPorServico from './components/GraficoSatisfacaoPorServico';
@@ -16,7 +13,6 @@ import GraficoSatisfacaoPorServico from './components/GraficoSatisfacaoPorServic
 class RelatorioGastosServicos extends Component {
   componentWillMount() {
     this.props.obterSatisfacaoPorProfissional();
-    this.props.obterSatisfacaoPorBairroCliente();
   }
 
   render() {
@@ -26,20 +22,15 @@ class RelatorioGastosServicos extends Component {
         breadcrumb={[{ name: 'Relatório', path: '#/' }, { name: 'Satisfação', path: '#/satisfacao' }]}
       >
         <GraficoSatisfacaoPorProfissional data={this.props.satisfacaoPorProfissional} />
-        <GraficoSatisfacaoPorBairroCliente data={this.props.satisfacaoPorBairroCliente} />
+        <GraficoSatisfacaoPorBairroCliente />
         <GraficoSatisfacaoPorServico />
       </Content>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  satisfacaoPorProfissional: state.relatorio.satisfacaoPorProfissional,
-  satisfacaoPorBairroCliente: state.relatorio.satisfacaoPorBairroCliente,
-});
-const mapDispatchToProps = dispatch => bindActionCreators({
-  obterSatisfacaoPorProfissional,
-  obterSatisfacaoPorBairroCliente,
-}, dispatch);
+const mapStateToProps = state => ({ satisfacaoPorProfissional: state.relatorio.satisfacaoPorProfissional });
+
+const mapDispatchToProps = dispatch => bindActionCreators({ obterSatisfacaoPorProfissional }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(RelatorioGastosServicos)

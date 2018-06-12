@@ -19,18 +19,14 @@ export const obterSatisfacaoPorProfissional = () => (dispatch) => {
     });
 };
 
-export const obterSatisfacaoPorBairroCliente = () => (dispatch) => {
+export const obterSatisfacaoPorBairroCliente = bairro => (dispatch) => {
   axios.post(
     'https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorBairroCliente',
-    { "Bairro": "Imbiribeira" },
-    { headers: { 'Content-type': 'application/x-www-form-urlencoded' }}
+    { Bairro: bairro },
+    { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
   )
-    .then((resposta) => {
-      dispatch({ type: LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE, payload: resposta.data })
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    .then(resposta => dispatch({ type: LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE, payload: resposta.data }))
+    .catch(error => console.log(error));
 };
 
 export const obterSatisfacaoPorServico = servicoId => (dispatch) => {

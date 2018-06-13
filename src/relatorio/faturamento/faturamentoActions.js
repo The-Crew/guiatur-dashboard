@@ -7,23 +7,20 @@ import {
 
 export const obterFaturamento = () => (dispatch) => {
   axios.get('https://beleza-agendada-api.herokuapp.com/Relatorio/listarFaturamento')
-    .then((resposta) => {
-      dispatch({ type: LISTAR_FATURAMENTO, payload: resposta.data })
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    .then(resposta => dispatch({ type: LISTAR_FATURAMENTO, payload: resposta.data }))
+    .catch(error => console.log(error));
 };
 
-export const obterFaturamentoPorServico = () => (dispatch) => {
-  axios.post('https://beleza-agendada-api.herokuapp.com/Relatorio/listarFaturamentoPorServico',
-    { "Id": "1" },
-    { headers: { 'Content-type': 'application/x-www-form-urlencoded' }}
-  )
-    .then((resposta) => {
-      dispatch({ type: LISTAR_FATURAMENTO_POR_SERVICO, payload: resposta.data })
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+export const obterFaturamentoPorServico = servicoId => (dispatch) => {
+  if (servicoId === '') {
+    dispatch({ type: LISTAR_FATURAMENTO_POR_SERVICO, payload: [] });
+  } else {
+    axios.post(
+      'https://beleza-agendada-api.herokuapp.com/Relatorio/listarFaturamentoPorServico',
+      { Id: servicoId },
+      { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
+    )
+      .then(resposta => dispatch({ type: LISTAR_FATURAMENTO_POR_SERVICO, payload: resposta.data }))
+      .catch(error => console.log(error));
+  }
 };

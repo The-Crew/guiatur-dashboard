@@ -5,13 +5,13 @@ import _ from 'lodash';
 
 import { Content } from 'common';
 
-import { obterFaturamento, obterFaturamentoPorServico } from './faturamentoActions';
+import { obterFaturamento } from './faturamentoActions';
 import GraficoFaturamento from './components/GraficoFaturamento';
+import GraficoFaturamentoPorServico from './components/GraficoFaturamentoPorServico';
 
 class RelatorioFaturamento extends Component {
   componentWillMount() {
     this.props.obterFaturamento();
-    this.props.obterFaturamentoPorServico();
   }
 
   render() {
@@ -21,7 +21,7 @@ class RelatorioFaturamento extends Component {
         breadcrumb={[{ name: 'Relatório', path: '#/' }, { name: 'Faturamento', path: '#/faturamento' }]}
       >
         <GraficoFaturamento data={this.props.faturamento} />
-        <GraficoFaturamento data={this.props.faturamentoPorServico} />
+        <GraficoFaturamentoPorServico />
       </Content>
     );
   }
@@ -29,8 +29,7 @@ class RelatorioFaturamento extends Component {
 
 const mapStateToProps = state => ({
   faturamento: state.relatorio.faturamento,
-  faturamentoPorServico: state.relatorio.faturamentoPorServico,
 });
-const mapDispatchToProps = dispatch => bindActionCreators({ obterFaturamento, obterFaturamentoPorServico }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ obterFaturamento }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(RelatorioFaturamento)

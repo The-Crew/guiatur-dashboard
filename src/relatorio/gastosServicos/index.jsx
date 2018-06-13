@@ -12,7 +12,6 @@ import GraficoGastoServicosPorServico from './components/GraficoGastoServicosPor
 class RelatorioGastosServicos extends Component {
   componentWillMount() {
     this.props.obterGastosServicos();
-    this.props.obterGastoServicosPorServico();
   }
 
   render() {
@@ -22,7 +21,7 @@ class RelatorioGastosServicos extends Component {
         breadcrumb={[{ name: 'Relatório', path: '#/' }, { name: 'Gastos com serviços', path: '#/gastosServicos' }]}
       >
         <GraficoGastoServicos data={this.props.gastosServicos} />
-        <GraficoGastoServicosPorServico data={this.props.gastosServicosPorServico} />
+        <GraficoGastoServicosPorServico />
       </Content>
     );
   }

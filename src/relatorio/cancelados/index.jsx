@@ -3,16 +3,15 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { Content, Box, Grid, ChartLine } from 'common';
+import { Content } from 'common';
 
-import { obterCancelados, obterCanceladosPorBairro } from './canceladosActions';
+import { obterCancelados } from './canceladosActions';
 import GraficoCancelados from './components/GraficoCancelados';
 import GraficoCanceladosPorBairro from './components/GraficoCanceladosPorBairro';
 
 class Relatorio extends Component {
   componentWillMount() {
     this.props.obterCancelados();
-    this.props.obterCanceladosPorBairro();
   }
 
   render() {
@@ -22,16 +21,13 @@ class Relatorio extends Component {
         breadcrumb={[{ name: 'Relatório', path: '#/' }, { name: 'Cancelamentos', path: '#/cancelamentos' }]}
       >
         <GraficoCancelados data={this.props.cancelados} />
-        <GraficoCanceladosPorBairro data={this.props.canceladosPorBairro} />
+        <GraficoCanceladosPorBairro />
       </Content>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  cancelados: state.relatorio.cancelados,
-  canceladosPorBairro: state.relatorio.canceladosPorBairro,
-});
-const mapDispatchToProps = dispatch => bindActionCreators({ obterCancelados, obterCanceladosPorBairro }, dispatch);
+const mapStateToProps = state => ({ cancelados: state.relatorio.cancelados });
+const mapDispatchToProps = dispatch => bindActionCreators({ obterCancelados }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Relatorio)

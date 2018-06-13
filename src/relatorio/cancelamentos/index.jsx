@@ -2,15 +2,15 @@ import React from 'react';
 
 import { Content } from 'common';
 
-import GraficoCancelados from './components/GraficoCancelados';
-import GraficoCanceladosPorBairro from './components/GraficoCanceladosPorBairro';
+import GraficoCancelamentos from './components/GraficoCancelamentos';
+import GraficoCancelamentosPorBairro from './components/GraficoCancelamentosPorBairro';
 
 export default props => (
   <Content
     title="Cancelamentos"
     breadcrumb={[{ name: 'Relatório', path: '#/' }, { name: 'Cancelamentos', path: '#/cancelamentos' }]}
   >
-    <GraficoCancelados />
-    <GraficoCanceladosPorBairro />
+    <GraficoCancelamentos />
+    <GraficoCancelamentosPorBairro />
   </Content>
 );

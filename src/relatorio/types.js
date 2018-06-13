@@ -1,5 +1,5 @@
-export const LISTAR_CANCELADOS = 'listar_cancelados';
-export const LISTAR_CANCELADOS_POR_BAIRRO = 'listar_cancelados_por_bairro';
+export const LISTAR_CANCELAMENTOS = 'listar_cancelados';
+export const LISTAR_CANCELAMENTOS_POR_BAIRRO = 'listar_cancelados_por_bairro';
 export const LISTAR_FATURAMENTO = 'listar_faturamento';
 export const LISTAR_FATURAMENTO_POR_SERVICO = 'listar_faturamento_por_servico';
 export const LISTAR_GASTOS_SERVICOS = 'listar_gastos_servicos';

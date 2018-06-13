@@ -21,7 +21,7 @@ class Relatorio extends Component {
 }
 
 const mapStateToProps = state => ({
-  cancelados: state.relatorio.cancelados,
+  cancelamentos: state.relatorio.cancelamentos,
 });
 const mapDispatchToProps = dispatch => bindActionCreators({  }, dispatch);
 

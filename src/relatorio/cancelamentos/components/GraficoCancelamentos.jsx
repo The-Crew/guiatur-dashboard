@@ -5,16 +5,16 @@ import _ from 'lodash';
 
 import { Box, Grid, ChartBar } from 'common';
 
-import { obterCancelados } from '../canceladosActions';
+import { obterCancelamentos } from '../cancelamentosActions';
 
 class Cancelamentos extends Component {
   componentWillMount() {
-    this.props.obterCancelados();
+    this.props.obterCancelamentos();
   }
 
   render() {
     const chartData = {
-      labels: _.keys(this.props.cancelados),
+      labels: _.keys(this.props.cancelamentos),
       datasets: [
         {
           label: 'Cancelamentos',
@@ -24,7 +24,7 @@ class Cancelamentos extends Component {
           pointStrokeColor: '#fff',
           pointHighlightFill: '#fff',
           pointHighlightStroke: 'rgba(151,187,205,1)',
-          data: _.values(this.props.cancelados),
+          data: _.values(this.props.cancelamentos),
         }
       ],
     };
@@ -38,7 +38,7 @@ class Cancelamentos extends Component {
   }
 }
 
-const mapStateToProps = state => ({ cancelados: state.relatorio.cancelados });
-const mapDispatchToProps = dispatch => bindActionCreators({ obterCancelados }, dispatch);
+const mapStateToProps = state => ({ cancelamentos: state.relatorio.cancelamentos });
+const mapDispatchToProps = dispatch => bindActionCreators({ obterCancelamentos }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cancelamentos)

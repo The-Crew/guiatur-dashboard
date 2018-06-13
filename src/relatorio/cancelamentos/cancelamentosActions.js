@@ -1,26 +1,26 @@
 import axios from 'axios';
 
 import {
-  LISTAR_CANCELADOS,
-  LISTAR_CANCELADOS_POR_BAIRRO,
+  LISTAR_CANCELAMENTOS,
+  LISTAR_CANCELAMENTOS_POR_BAIRRO,
 } from '../types';
 
-export const obterCancelados = () => (dispatch) => {
+export const obterCancelamentos = () => (dispatch) => {
   axios.get('https://beleza-agendada-api.herokuapp.com/Relatorio/listarCancelamentos')
-    .then(resposta => dispatch({ type: LISTAR_CANCELADOS, payload: resposta.data }))
+    .then(resposta => dispatch({ type: LISTAR_CANCELAMENTOS, payload: resposta.data }))
     .catch(error => console.log(error));
 };
 
-export const obterCanceladosPorBairro = bairro => (dispatch) => {
+export const obterCancelamentosPorBairro = bairro => (dispatch) => {
   if (bairro === '') {
-    dispatch({ type: LISTAR_CANCELADOS_POR_BAIRRO, payload: [] });
+    dispatch({ type: LISTAR_CANCELAMENTOS_POR_BAIRRO, payload: [] });
   } else {
     axios.post(
       'https://beleza-agendada-api.herokuapp.com/Relatorio/listarCancelamentos',
       { Bairro: bairro },
       { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
     )
-      .then(resposta => dispatch({ type: LISTAR_CANCELADOS_POR_BAIRRO, payload: resposta.data }))
+      .then(resposta => dispatch({ type: LISTAR_CANCELAMENTOS_POR_BAIRRO, payload: resposta.data }))
       .catch(error => console.log(error));
   }
 };

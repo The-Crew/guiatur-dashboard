@@ -7,12 +7,8 @@ import {
 
 export const obterLucroMensal = () => (dispatch) => {
   axios.get('https://beleza-agendada-api.herokuapp.com/Relatorio/listarLucroMensal')
-    .then((resposta) => {
-      dispatch({ type: LISTAR_LUCRO_MENSAL, payload: resposta.data })
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    .then(resposta => dispatch({ type: LISTAR_LUCRO_MENSAL, payload: resposta.data }))
+    .catch(error => console.log(error));
 };
 
 export const obterLucroMensalPorServico = servicoId => (dispatch) => {
@@ -24,9 +20,7 @@ export const obterLucroMensalPorServico = servicoId => (dispatch) => {
       { Servico: { Id: servicoId } },
       { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
     )
-      .then((resposta) => {
-        dispatch({ type: LISTAR_LUCRO_MENSAL_POR_SERVICO, payload: resposta.data });
-      })
+      .then(resposta => dispatch({ type: LISTAR_LUCRO_MENSAL_POR_SERVICO, payload: resposta.data }))
       .catch(error => console.log(error));
   }
 };

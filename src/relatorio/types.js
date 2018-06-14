@@ -15,3 +15,5 @@ export const LISTAR_SATISFACAO_POR_SERVICO = 'listar_satisfacao_por_servico';
 export const LISTAR_SERVICOS = 'listar_servicos';
 export const LISTAR_PROFISSIONAIS = 'listar_profissionais';
 export const LISTAR_BAIRROS = 'listar_bairros';
+export const QUANTIDADE_CLIENTES = 'quantidade_clientes';
+export const QUANTIDADE_CANCELAMENTOS_ANO = 'quantidade_cancelamento_ano';

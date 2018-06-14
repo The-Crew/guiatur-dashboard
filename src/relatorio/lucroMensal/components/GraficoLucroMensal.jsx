@@ -30,7 +30,7 @@ class LucroMensal extends Component {
     };
     return (
       <Grid cols="12 12 6 6">
-        <Box title="Gasto servicos" type="success">
+        <Box title="Lucro mensal" type="success">
           <ChartBar data={chartData} style={{ width: '100%' }} />
         </Box>
       </Grid>

@@ -16,6 +16,8 @@ import {
   LISTAR_SERVICOS,
   LISTAR_PROFISSIONAIS,
   LISTAR_BAIRROS,
+  QUANTIDADE_CLIENTES,
+  QUANTIDADE_CANCELAMENTOS_ANO,
 } from './types';
 
 const INITIAL_STATE = {
@@ -36,6 +38,8 @@ const INITIAL_STATE = {
   listaServicos: [],
   listaProfissionais: [],
   listaBairros: [],
+  quantidadeClientes: null,
+  quantidadeCancelamentosAno: null,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -74,6 +78,10 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, listaProfissionais: action.payload };
     case LISTAR_BAIRROS:
       return { ...state, listaBairros: action.payload };
+    case QUANTIDADE_CLIENTES:
+      return { ...state, quantidadeClientes: action.payload };
+    case QUANTIDADE_CANCELAMENTOS_ANO:
+      return { ...state, quantidadeCancelamentosAno: action.payload };
     default:
       return state;
   }

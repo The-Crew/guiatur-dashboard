@@ -17,7 +17,7 @@ class GastosServicos extends Component {
       labels: _.keys(this.props.gastosServicos),
       datasets: [
         {
-          label: 'Gasto com serviços',
+          label: 'Gastos com serviços',
           fillColor: 'rgba(151,187,205,0.2)',
           strokeColor: 'rgba(151,187,205,1)',
           pointColor: 'rgba(151,187,205,1)',
@@ -31,7 +31,7 @@ class GastosServicos extends Component {
 
     return (
       <Grid cols="12 12 6 6">
-        <Box title="Gasto com serviços" type="danger">
+        <Box title="Gastos com serviços" type="danger">
           <ChartBar data={chartData} style={{ width: '100%' }} />
         </Box>
       </Grid>

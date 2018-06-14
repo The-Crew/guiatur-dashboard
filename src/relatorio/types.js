@@ -14,3 +14,4 @@ export const LISTAR_SATISFACAO_MEDIA_POR_SERVICOS = 'listar_satisfacao_media_por
 export const LISTAR_SATISFACAO_POR_SERVICO = 'listar_satisfacao_por_servico';
 export const LISTAR_SERVICOS = 'listar_servicos';
 export const LISTAR_PROFISSIONAIS = 'listar_profissionais';
+export const LISTAR_BAIRROS = 'listar_bairros';

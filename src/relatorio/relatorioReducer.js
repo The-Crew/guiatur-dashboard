@@ -15,6 +15,7 @@ import {
   LISTAR_SATISFACAO_POR_SERVICO,
   LISTAR_SERVICOS,
   LISTAR_PROFISSIONAIS,
+  LISTAR_BAIRROS,
 } from './types';
 
 const INITIAL_STATE = {
@@ -29,17 +30,12 @@ const INITIAL_STATE = {
   satisfacaoMediaPorProfissionais: [],
   satisfacaoPorProfissional: [],
   satisfacaoMediaPorBairros: [],
-  satisfacaoPorBairroCliente: [],
+  satisfacaoPorBairroAtendimento: [],
   satisfacaoPorServico: [],
   satisfacaoMediaPorServicos: [],
   listaServicos: [],
-  listaBairros: [
-    { Descricao: 'Boa Viagem' },
-    { Descricao: 'Imbiribeira' },
-    { Descricao: 'IPSEP' },
-    { Descricao: 'Piedade' },
-  ],
   listaProfissionais: [],
+  listaBairros: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -67,7 +63,7 @@ export default (state = INITIAL_STATE, action) => {
     case LISTAR_SATISFACAO_MEDIA_POR_BAIRRO_CLIENTE:
       return { ...state, satisfacaoMediaPorBairros: action.payload };
     case LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE:
-      return { ...state, satisfacaoPorBairroCliente: action.payload };
+      return { ...state, satisfacaoPorBairroAtendimento: action.payload };
     case LISTAR_SATISFACAO_MEDIA_POR_SERVICOS:
       return { ...state, satisfacaoMediaPorServicos: action.payload };
     case LISTAR_SATISFACAO_POR_SERVICO:
@@ -76,6 +72,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, listaServicos: action.payload };
     case LISTAR_PROFISSIONAIS:
       return { ...state, listaProfissionais: action.payload };
+    case LISTAR_BAIRROS:
+      return { ...state, listaBairros: action.payload };
     default:
       return state;
   }

@@ -29,7 +29,7 @@ export const obterSatisfacaoPorProfissional = profissionalId => (dispatch) => {
   }
 };
 
-export const obterSatisfacaoPorBairroCliente = bairro => (dispatch) => {
+export const obterSatisfacaoPorBairroAtendimento = bairro => (dispatch) => {
   if (bairro === '') {
     dispatch({ type: LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE, payload: [] })
   } else if (bairro === undefined) {
@@ -42,7 +42,7 @@ export const obterSatisfacaoPorBairroCliente = bairro => (dispatch) => {
       .catch(error => console.log(error));
   } else {
     axios.post(
-      'https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorBairroCliente',
+      'https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorBairroAtendimento',
       { Bairro: bairro },
       { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
     )

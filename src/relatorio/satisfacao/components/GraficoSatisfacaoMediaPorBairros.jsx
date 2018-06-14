@@ -5,11 +5,11 @@ import _ from 'lodash';
 
 import { Box, Grid, ChartBar } from 'common';
 
-import { obterSatisfacaoPorBairroCliente } from '../satisfacaoActions';
+import { obterSatisfacaoPorBairroAtendimento } from '../satisfacaoActions';
 
-class SatisfacaoMediaPorBairros extends Component {
+class SatisfacaoMediaPorAtendimento extends Component {
   componentWillMount() {
-    this.props.obterSatisfacaoPorBairroCliente(undefined);
+    this.props.obterSatisfacaoPorBairroAtendimento(undefined);
   }
 
   render() {
@@ -43,6 +43,6 @@ const mapStateToProps = state => ({
   satisfacaoMediaPorBairros: state.relatorio.satisfacaoMediaPorBairros,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ obterSatisfacaoPorBairroCliente }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ obterSatisfacaoPorBairroAtendimento }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(SatisfacaoMediaPorBairros);
+export default connect(mapStateToProps, mapDispatchToProps)(SatisfacaoMediaPorAtendimento);

@@ -23,10 +23,24 @@ export const obterListaDeProfissionais = () => dispatch => {
 };
 
 export const obterListaDeBairros = () => dispatch => {
-  axios.post('https://beleza-agendada-api.herokuapp.com/Relatorio/listarBairrosAtendimento')
+  /*axios.post(
+    'https://beleza-agendada-api.herokuapp.com/Relatorio/listarBairrosAtendimento',
+    { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
+  )
     .then(resposta => {
-      dispatch({ type: LISTAR_BAIRROS, payload: resposta.data })})
-    .catch(error => console.log(error));
+      bairros = resposta.data.map((atendimento) => {
+        return { Bairro: atendimento.Bairro };
+      })
+      console.log(bairros);
+      dispatch({ type: LISTAR_BAIRROS, payload: bairros })
+    })
+    .catch(error => console.log(error));*/
+    dispatch({ type: LISTAR_BAIRROS, payload: [
+        { Bairro: 'Boa viagem' },
+        { Bairro: 'Imbiribeira' },
+        { Bairro: 'IPSEP' },
+        { Bairro: 'Piedade' },
+      ] });
 };
 
 export const obterQuantidadeClientes = () => dispatch => {
@@ -37,9 +51,13 @@ export const obterQuantidadeClientes = () => dispatch => {
 };
 
 export const obterCancelamentosAno = () => (dispatch) => {
-  axios.get('https://beleza-agendada-api.herokuapp.com/Relatorio/listarCancelamentos')
+  axios.post(
+    'https://beleza-agendada-api.herokuapp.com/Atendimento/obterQuantidadePorStatus',
+    { Status: 'C' },
+    { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
+  )
     .then((resposta) => {
-      dispatch({ type: QUANTIDADE_CANCELAMENTOS_ANO, payload: _.sum(_.values(resposta.data)) });
+      dispatch({ type: QUANTIDADE_CANCELAMENTOS_ANO, payload: resposta.data });
     })
     .catch(error => console.log(error));
 };

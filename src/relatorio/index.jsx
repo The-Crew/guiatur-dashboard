@@ -20,9 +20,6 @@ class Relatorio extends Component {
         <div className="callout callout-info">
           <h4>Quantidade de clientes ativos: {this.props.quantidadeClientes}</h4>
         </div>
-        <div className="callout callout-warning">
-          <h4>Quantidade de cancelamentos no ano: {this.props.quantidadeCancelamentosAno}</h4>
-        </div>
       </Content>
     );
   }

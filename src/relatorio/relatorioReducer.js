@@ -14,6 +14,7 @@ import {
   LISTAR_SATISFACAO_MEDIA_POR_SERVICOS,
   LISTAR_SATISFACAO_POR_SERVICO,
   LISTAR_SERVICOS,
+  LISTAR_SERVICOS_NAO_CONCLUIDOS,
   LISTAR_PROFISSIONAIS,
   LISTAR_BAIRROS,
   QUANTIDADE_CLIENTES,
@@ -36,6 +37,7 @@ const INITIAL_STATE = {
   satisfacaoPorServico: [],
   satisfacaoMediaPorServicos: [],
   listaServicos: [],
+  listaServicosNaoConcluidos: [],
   listaProfissionais: [],
   listaBairros: [],
   quantidadeClientes: null,
@@ -74,6 +76,9 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, satisfacaoPorServico: action.payload };
     case LISTAR_SERVICOS:
       return { ...state, listaServicos: action.payload };
+    case LISTAR_SERVICOS_NAO_CONCLUIDOS:
+      console.log(action.payload)
+      return { ...state, listaServicosNaoConcluidos: action.payload };
     case LISTAR_PROFISSIONAIS:
       return { ...state, listaProfissionais: action.payload };
     case LISTAR_BAIRROS:

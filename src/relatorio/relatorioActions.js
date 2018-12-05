@@ -3,11 +3,18 @@ import _ from 'lodash';
 
 import {
   LISTAR_SERVICOS,
+  LISTAR_SERVICOS_NAO_CONCLUIDOS,
   LISTAR_PROFISSIONAIS,
   LISTAR_BAIRROS,
   QUANTIDADE_CLIENTES,
   QUANTIDADE_CANCELAMENTOS_ANO,
 } from './types';
+
+export const obterListaAtendimentosNaoConcluidos = () => dispatch => {
+  axios.post('http://localhost/Atendimento/listarTodosNaoConcluidos')
+    .then(resposta => dispatch({ type: LISTAR_SERVICOS_NAO_CONCLUIDOS, payload: resposta.data || [] }))
+    .catch(error => console.log(error));
+};
 
 export const obterListaDeServico = () => dispatch => {
   axios.post('https://beleza-agendada-api.herokuapp.com/Servico/listarTodos')
@@ -58,6 +65,20 @@ export const obterCancelamentosAno = () => (dispatch) => {
   )
     .then((resposta) => {
       dispatch({ type: QUANTIDADE_CANCELAMENTOS_ANO, payload: resposta.data });
+    })
+    .catch(error => console.log(error));
+};
+
+export const finalizarAtendimento = (Id) => (dispatch) => {
+  axios.post(
+    'http://localhost/Atendimento/finalizar',
+    { Id },
+    { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
+  )
+    .then((resposta) => {
+      axios.post('http://localhost/Atendimento/listarTodosNaoConcluidos')
+      .then(resposta => dispatch({ type: LISTAR_SERVICOS_NAO_CONCLUIDOS, payload: resposta.data || [] }))
+      .catch(error => console.log(error));
     })
     .catch(error => console.log(error));
 };

@@ -13,6 +13,7 @@ export const LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE = 'listar_satisfacao_por_bairr
 export const LISTAR_SATISFACAO_MEDIA_POR_SERVICOS = 'listar_satisfacao_media_por_servicos';
 export const LISTAR_SATISFACAO_POR_SERVICO = 'listar_satisfacao_por_servico';
 export const LISTAR_SERVICOS = 'listar_servicos';
+export const LISTAR_SERVICOS_NAO_CONCLUIDOS = 'listar_servicos_nao_concluidos';
 export const LISTAR_PROFISSIONAIS = 'listar_profissionais';
 export const LISTAR_BAIRROS = 'listar_bairros';
 export const QUANTIDADE_CLIENTES = 'quantidade_clientes';

@@ -1,9 +1,9 @@
 {
-  "name": "beleza_agendada_dashboard",
+  "name": "guiatur_dashboard",
   "authors": [
     "Filipe de Sousa Botelho <filipegame07@gmail.com>"
   ],
-  "description": "Dashboard para o projeto acadêmico Beleza Agendada",
+  "description": "Dashboard do projeto GuiaTur (Trabalho acadêmico)",
   "main": "index.html",
   "license": "MIT",
   "homepage": "",
@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "admin-lte": "adminlte#^2.4.3"
+    "admin-lte": "adminlte#^2.4.3",
+    "bootstrap": "3.3.7"
   }
 }

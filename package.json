@@ -1,7 +1,7 @@
 {
-  "name": "beleza_agendada_dashboard",
+  "name": "guiatur_dashboard",
   "version": "1.0.0",
-  "description": "Dashboard para a api do Beleza Agendada (Trabalho acadêmico)",
+  "description": "Dashboard do projeto GuiaTur (Trabalho acadêmico)",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --progress --colors --inline --hot",

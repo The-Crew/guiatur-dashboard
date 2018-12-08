@@ -12,7 +12,7 @@ const Header = props => (
         style={{ fontSize: 10, lineHeight: '10px', marginTop: 16 }}
       >BA</span>
       <span className="logo-lg">
-        Beleza Agendada
+        GuiaTur
       </span>
     </a>
     <nav className="navbar navbar-static-top">

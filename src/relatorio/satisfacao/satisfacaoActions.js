@@ -13,14 +13,14 @@ export const obterSatisfacaoPorProfissional = profissionalId => (dispatch) => {
   if (profissionalId === '') {
     dispatch({ type: LISTAR_SATISFACAO_POR_PROFISSIONAL, payload: [] })
   } else if (profissionalId == undefined) {
-    axios.post('https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorProfissional',
+    axios.post('https://guiatur-webservice.herokuapp.com/Relatorio/listarSatisfacaoPorProfissional',
       { Id: undefined },
       { headers: { 'Content-type': 'application/x-www-form-urlencoded' }}
     )
       .then(resposta => dispatch({ type: LISTAR_SATISFACAO_MEDIA_POR_PROFISSIONAIS, payload: resposta.data }))
       .catch(error => console.log(error));
   } else {
-    axios.post('https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorProfissional',
+    axios.post('https://guiatur-webservice.herokuapp.com/Relatorio/listarSatisfacaoPorProfissional',
       { Id: profissionalId },
       { headers: { 'Content-type': 'application/x-www-form-urlencoded' }}
     )
@@ -34,7 +34,7 @@ export const obterSatisfacaoPorBairroAtendimento = bairro => (dispatch) => {
     dispatch({ type: LISTAR_SATISFACAO_POR_BAIRRO_CLIENTE, payload: [] })
   } else if (bairro === undefined) {
     axios.post(
-      'https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorBairroCliente',
+      'https://guiatur-webservice.herokuapp.com/Relatorio/listarSatisfacaoPorBairroCliente',
       { Bairro: undefined },
       { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
     )
@@ -42,7 +42,7 @@ export const obterSatisfacaoPorBairroAtendimento = bairro => (dispatch) => {
       .catch(error => console.log(error));
   } else {
     axios.post(
-      'https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorBairroAtendimento',
+      'https://guiatur-webservice.herokuapp.com/Relatorio/listarSatisfacaoPorBairroAtendimento',
       { Bairro: bairro },
       { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
     )
@@ -56,7 +56,7 @@ export const obterSatisfacaoPorServico = servicoId => (dispatch) => {
     dispatch({ type: LISTAR_SATISFACAO_POR_SERVICO, payload: [] });
   } else if (servicoId === undefined) {
     axios.post(
-      'https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorServico',
+      'https://guiatur-webservice.herokuapp.com/Relatorio/listarSatisfacaoPorServico',
       { Id: undefined },
       { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
     )
@@ -64,7 +64,7 @@ export const obterSatisfacaoPorServico = servicoId => (dispatch) => {
       .catch(error => console.log(error));
   } else {
     axios.post(
-      'https://beleza-agendada-api.herokuapp.com/Relatorio/listarSatisfacaoPorServico',
+      'https://guiatur-webservice.herokuapp.com/Relatorio/listarSatisfacaoPorServico',
       { Id: servicoId },
       { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
     )

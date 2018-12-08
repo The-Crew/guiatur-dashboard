@@ -6,7 +6,7 @@ import {
 } from '../types';
 
 export const obterFaturamento = () => (dispatch) => {
-  axios.get('https://beleza-agendada-api.herokuapp.com/Relatorio/listarFaturamento')
+  axios.get('https://guiatur-webservice.herokuapp.com/Relatorio/listarFaturamento')
     .then(resposta => dispatch({ type: LISTAR_FATURAMENTO, payload: resposta.data }))
     .catch(error => console.log(error));
 };
@@ -16,7 +16,7 @@ export const obterFaturamentoPorServico = servicoId => (dispatch) => {
     dispatch({ type: LISTAR_FATURAMENTO_POR_SERVICO, payload: [] });
   } else {
     axios.post(
-      'https://beleza-agendada-api.herokuapp.com/Relatorio/listarFaturamentoPorServico',
+      'https://guiatur-webservice.herokuapp.com/Relatorio/listarFaturamentoPorServico',
       { Id: servicoId },
       { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
     )

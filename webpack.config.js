@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   entry: './src/index.jsx', // Arquivo inicial de entrada, a partir daqui toda a aplicação é carregada
   output: {
-    path: path.join(__dirname, 'public'), // Pasta de saída do arquivo do webpack
+    path: path.join(__dirname, 'public/assets'), // Pasta de saída do arquivo do webpack
     filename: './bundle.js', // Nome do arquivo criado pelo webpack
   },
   devServer: {

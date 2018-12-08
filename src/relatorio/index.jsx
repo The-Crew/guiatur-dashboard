@@ -8,7 +8,8 @@ import { Table, Thead, Th, Tbody, Td, Tr } from 'common/Table';
 import {
   obterQuantidadeClientes,
   obterListaAtendimentosNaoConcluidos,
-  finalizarAtendimento
+  finalizarAtendimento,
+  removerAtendimento,
 } from './relatorioActions';
 
 class Relatorio extends Component {
@@ -53,7 +54,7 @@ class Relatorio extends Component {
                     <Td>{data[2] + '/' + data[1] + '/' + data[0]}</Td>
                     <Td>
                       <Button className="col-md-6" icon="check" onClick={() => this.props.finalizarAtendimento(value.Id)} />
-                      <Button  className="col-md-6" icon="trash" color="danger" />
+                      <Button  className="col-md-6" icon="trash" color="danger" onClick={() => this.props.removerAtendimento(value.Id)} />
                     </Td>
                   </Tr>
                 )
@@ -76,7 +77,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
   obterQuantidadeClientes,
   obterListaAtendimentosNaoConcluidos,
-  finalizarAtendimento
+  finalizarAtendimento,
+  removerAtendimento,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Relatorio)

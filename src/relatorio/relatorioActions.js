@@ -11,19 +11,22 @@ import {
 } from './types';
 
 export const obterListaAtendimentosNaoConcluidos = () => dispatch => {
-  axios.post('http://localhost/Atendimento/listarTodosNaoConcluidos')
-    .then(resposta => dispatch({ type: LISTAR_SERVICOS_NAO_CONCLUIDOS, payload: resposta.data || [] }))
+  axios.get('https://guiatur-webservice.herokuapp.com/Atendimento/listarTodosNaoConcluidos', { headers: { 'Content-Type': 'application/json' }})
+    .then(resposta => {
+      console.log('>>>>>>', resposta)
+      dispatch({ type: LISTAR_SERVICOS_NAO_CONCLUIDOS, payload: resposta.data || [] })
+    })
     .catch(error => console.log(error));
 };
 
 export const obterListaDeServico = () => dispatch => {
-  axios.post('https://beleza-agendada-api.herokuapp.com/Servico/listarTodos')
+  axios.post('https://guiatur-webservice.herokuapp.com/Servico/listarTodos')
     .then(resposta => dispatch({ type: LISTAR_SERVICOS, payload: resposta.data }))
     .catch(error => console.log(error));
 };
 
 export const obterListaDeProfissionais = () => dispatch => {
-  axios.post('https://beleza-agendada-api.herokuapp.com/Profissional/listarTodos')
+  axios.post('https://guiatur-webservice.herokuapp.com/Profissional/listarTodos')
     .then(resposta => {
       dispatch({ type: LISTAR_PROFISSIONAIS, payload: resposta.data })})
     .catch(error => console.log(error));
@@ -31,7 +34,7 @@ export const obterListaDeProfissionais = () => dispatch => {
 
 export const obterListaDeBairros = () => dispatch => {
   /*axios.post(
-    'https://beleza-agendada-api.herokuapp.com/Relatorio/listarBairrosAtendimento',
+    'https://guiatur-webservice.herokuapp.com/Relatorio/listarBairrosAtendimento',
     { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
   )
     .then(resposta => {
@@ -51,7 +54,7 @@ export const obterListaDeBairros = () => dispatch => {
 };
 
 export const obterQuantidadeClientes = () => dispatch => {
-  axios.post('https://beleza-agendada-api.herokuapp.com/cliente/obterQuantidade')
+  axios.post('https://guiatur-webservice.herokuapp.com/cliente/obterQuantidade')
     .then(resposta => {
       dispatch({ type: QUANTIDADE_CLIENTES, payload: resposta.data })})
     .catch(error => console.log(error));
@@ -59,7 +62,7 @@ export const obterQuantidadeClientes = () => dispatch => {
 
 export const obterCancelamentosAno = () => (dispatch) => {
   axios.post(
-    'https://beleza-agendada-api.herokuapp.com/Atendimento/obterQuantidadePorStatus',
+    'https://guiatur-webservice.herokuapp.com/Atendimento/obterQuantidadePorStatus',
     { Status: 'C' },
     { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
   )
@@ -71,14 +74,33 @@ export const obterCancelamentosAno = () => (dispatch) => {
 
 export const finalizarAtendimento = (Id) => (dispatch) => {
   axios.post(
-    'http://localhost/Atendimento/finalizar',
+    'https://guiatur-webservice.herokuapp.com/Atendimento/finalizar',
     { Id },
     { headers: { 'Content-type': 'application/x-www-form-urlencoded' } },
   )
     .then((resposta) => {
-      axios.post('http://localhost/Atendimento/listarTodosNaoConcluidos')
+      axios.post('https://guiatur-webservice.herokuapp.com/Atendimento/listarTodosNaoConcluidos')
       .then(resposta => dispatch({ type: LISTAR_SERVICOS_NAO_CONCLUIDOS, payload: resposta.data || [] }))
       .catch(error => console.log(error));
     })
     .catch(error => console.log(error));
+};
+
+export const removerAtendimento = (key, callbackSuccess) => (dispatch) => {
+  axios.post(
+    'https://guiatur-webservice.herokuapp.com/Atendimento/cancelar',
+    { Id: key },
+  )
+    .then((resp) => {
+      console.log(resp);
+      axios.get('https://guiatur-webservice.herokuapp.com/Atendimento/listarTodosNaoConcluidos', { headers: { 'Content-Type': 'application/json' }})
+        .then(resposta => {
+          console.log('>>>>>>', resposta)
+          dispatch({ type: LISTAR_SERVICOS_NAO_CONCLUIDOS, payload: resposta.data || [] })
+        })
+        .catch(error => console.log(error));
+
+      if (typeof callbackSuccess === 'function') callbackSuccess();
+    })
+    .catch((error) => console.log(error));
 };
